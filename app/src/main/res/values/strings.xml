@@ -13,4 +13,5 @@
     <string name="notification_button">Send notification</string>
     <string name="whatsapp_button">Open Whatsapp</string>
     <string name="connect_server">Connect to Server</string>
+    <string name="command_button">Execute Command</string>
 </resources>
