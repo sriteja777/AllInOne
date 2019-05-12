@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">AllInOne</string>
+    <string name="changed_text">Old_Text</string>
+    <string name="edit_text">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="phone_status">Phone Information</string>
+    <string name="version_oreo">Oreo</string>
+    <string name="version_pie">Pie</string>
+    <string name="battery_charging">Charging</string>
+    <string name="battery_discharging">Discharging</string>
+    <string name="channel_name">Testing</string>
+    <string name="channel_description">This is for testing the notification service.</string>
+    <string name="notification_button">Send notification</string>
+    <string name="whatsapp_button">Open Whatsapp</string>
+    <string name="connect_server">Connect to Server</string>
+</resources>
