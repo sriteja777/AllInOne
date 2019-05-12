@@ -20,17 +20,17 @@ import java.io.*;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.sriteja.allinone.MESSAGE";
-//    private String notification_msg = "";
+    private String notification_msg = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-//    public MainActivity set_ntfcn_msg(String msg) {
-////        this.notification_msg = msg;
-//        return this;
-//    }
+    public MainActivity set_ntfcn_msg(String msg) {
+//        this.notification_msg = msg;
+        return this;
+    }
 
     public void sendMessage(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
@@ -45,21 +45,22 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //    public void send_ntfcn_msg(String msg) {
-    //        createNotificationChannel();
-    //        Intent intent = new Intent(this, MainActivity.class);
-    //        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-    //        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-    //
-    //        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "hello")
-    //                .setSmallIcon(R.mipmap.ic_launcher)
-    //                .setContentTitle("Test")
-    //                .setContentText(msg)
-    //                .setContentIntent(pendingIntent)
-    //                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-    //                .setAutoCancel(true);
-    //        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-    //    }
+    public void send_ntfcn_msg(String msg) {
+        createNotificationChannel();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "hello")
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("Test")
+                .setContentText(msg)
+                .setContentIntent(pendingIntent)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setAutoCancel(true);
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+    }
 
     public void sendNotification(View view) {
         createNotificationChannel();
@@ -137,7 +138,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void networkManager(View view) {
         URL url = null;
-        new ConnectToServerTask().execute(url);
+        System.out.println("this is from here");
+        new ConnectToServerTask().execute("sd");
+//        System.out.println();
+    }
+
+    public void cmdExec(View view) {
+        URL url = null;
+//        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        EditText editText = (EditText) findViewById(R.id.editText2);
+        String message = editText.getText().toString();
+//        intent.putExtra(EXTRA_MESSAGE, message);
+//        startActivity(intent);
+
+
+        new ConnectToServerTask().execute(message);
     }
 
 }
